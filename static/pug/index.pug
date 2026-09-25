@@ -1,8 +1,14 @@
 extends layout/layout.pug
 
+block variables 
+    -var title = "Главная страница"
+    -var pageClass = "index-page"
+    - var pathContentImg = 'static/images/content/'
+    - var pathCommonImg = 'static/images/common/'
+
 block content
     .content
-        main.index-page
+        main(class= pageClass)
             include modules/hero.pug
             include modules/new-books/new-books.pug
             include modules/best-books/best-books.pug

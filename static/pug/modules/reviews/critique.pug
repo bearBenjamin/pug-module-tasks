@@ -1,3 +1,5 @@
+include critique-data
+
 section.reviews
     .container
         h2.reviews__title.section__title Рецензии
@@ -7,40 +9,40 @@ section.reviews
                     .reviews__info
                         .reviews__box-images
                             img.reviews__img(
-                                src=`${pathContentImg}review-4.jpg`
-                                alt='Фото автора отзыва'
-                                width='80'
-                                height='80'
+                                src= critique[0].img
+                                alt= critique[0].alt
+                                width= critique[0].width
+                                height= critique[0].height
                             )
                         .reviews__box
-                            h3.reviews__name Алексей Иванов
-                            p.reviews__count Купил 23 книг
-                    p.reviews__review Хорошая книга. Полна приключений, романтики, неплохих действующих героев. Вообщем всего, что нужно, чтобы хорошо провести время за чтением.
+                            h3.reviews__name= critique[0].name
+                            p.reviews__count= critique[0].count
+                    p.reviews__review= critique[0].review
             li.reviews__item
                 .reviews__wrapper
                     .reviews__info
                         .reviews__box-images
                             img.reviews__img(
-                                src=`${pathContentImg}review-5.jpg`
-                                alt='Фото автора отзыва'
-                                width='80'
-                                height='80'
+                                src= critique[1].img
+                                alt= critique[1].atl
+                                width= critique[1].width
+                                height= critique[1].height
                             )
                         .reviews__box
-                            h3.reviews__name Анна Кириллова
-                            p.reviews__count Купила 50 книг
-                    p.reviews__review Не ожидала многого от этой книги, купилась больше на красивую обложку, но была рада ошибиться. Обе книги прочитала дня за 3 или 4, уже не помню, так вчиталась!
+                            h3.reviews__name= critique[1].name
+                            p.reviews__count= critique[1].count
+                    p.reviews__review= critique[1].review
             li.reviews__item 
                 .reviews__wrapper
                     .reviews__info
                         .reviews__box-images
                             img.reviews__img(
-                                src=`${pathContentImg}review-6.jpg`
-                                alt='Фото автора отзыва'
-                                width='80'
-                                height='80'
+                                src= critique[2].img
+                                alt= critique[2].alt
+                                width= critique[2].width
+                                height= critique[2].height
                             )
                         .reviews__box
-                            h3.reviews__name Мария Нагаева
-                            p.reviews__count Купила 8 книг
-                    p.reviews__review Очень нетипичный подход, учитывая, что фейри и железо слабо совместимы, но логика автора, позволившая формирование нового Двора, меня восхитила.
+                            h3.reviews__name= critique[2].name
+                            p.reviews__count= critique[2].count
+                    p.reviews__review= critique[2].review

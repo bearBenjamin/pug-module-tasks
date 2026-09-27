@@ -4,11 +4,8 @@ section.about
     .container
         h2.about__title.section__title О нас
         ul.about__list
-            li.about__item
-                .about__wrapper
-                    h3.about__heading= aboutDescriptions[0].heading
-                    p.about__text= aboutDescriptions[0].text
-            li.about__item
-                .about__wrapper
-                    h3.about__heading= aboutDescriptions[1].heading
-                    p.about__text= aboutDescriptions[1].text
+            each item in aboutDescriptions
+                li.about__item
+                    .about__wrapper
+                        h3.about__heading= item.heading
+                        p.about__text= item.text

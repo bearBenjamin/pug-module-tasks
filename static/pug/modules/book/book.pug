@@ -25,33 +25,10 @@ section.book
                     .book__information
                         h2.book__heading Информация
                         ul.book__info-list
-                            li.book__info-item
-                                span.book__term= bookData.informations[0].term
-                                span.book__def= bookData.informations[0].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[1].term
-                                span.book__def= bookData.informations[1].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[2].term
-                                span.book__def= bookData.informations[2].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[3].term
-                                span.book__def= bookData.informations[3].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[4].term
-                                span.book__def= bookData.informations[4].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[5].term
-                                span.book__def= bookData.informations[5].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[6].term
-                                span.book__def= bookData.informations[6].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[7].term
-                                span.book__def= bookData.informations[7].def
-                            li.book__info-item
-                                span.book__term= bookData.informations[8].term
-                                span.book__def= bookData.informations[8].def
+                            each information in bookData.informations
+                                li.book__info-item
+                                    span.book__term= information.term
+                                    span.book__def= information.def
                     .book__annotation
                         h2.book__heading= bookData.annotation.heading
                         p.book__text= bookData.annotation.text

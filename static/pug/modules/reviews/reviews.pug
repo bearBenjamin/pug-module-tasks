@@ -4,45 +4,18 @@ section.reviews
     .container
         h2.reviews__title.section__title Отзывы
         ul.reviews__list
-            li.reviews__item
-                .reviews__wrapper
-                    .reviews__info
-                        .reviews__box-images
-                            img.reviews__img(
-                                src=reviews[0].img
-                                alt='Фото автора отзыва'
-                                width=reviews[0].width
-                                height=reviews[0].height
-                            )
-                        .reviews__box
-                            h3.reviews__name= reviews[0].name
-                            p.reviews__count= reviews[0].count
-                    p.reviews__review= reviews[0].review
-            li.reviews__item 
-                .reviews__wrapper
-                    .reviews__info
-                        .reviews__box-images
-                            img.reviews__img(
-                                src=reviews[1].img
-                                alt='Фото автора отзыва'
-                                width=reviews[1].width
-                                height=reviews[1].height
-                            )
-                        .reviews__box
-                            h3.reviews__name= reviews[1].name
-                            p.reviews__count= reviews[1].count
-                    p.reviews__review= reviews[1].review
-            li.reviews__item
-                .reviews__wrapper
-                    .reviews__info
-                        .reviews__box-images
-                            img.reviews__img(
-                                src=reviews[2].img
-                                alt='Фото автора отзыва'
-                                width=reviews[2].width
-                                height=reviews[2].height
-                            )
-                        .reviews__box
-                            h3.reviews__name= reviews[2].name
-                            p.reviews__count= reviews[2].count
-                    p.reviews__review= reviews[2].review
+            each item in reviews
+                li.reviews__item
+                    .reviews__wrapper
+                        .reviews__info
+                            .reviews__box-images
+                                img.reviews__img(
+                                    src=item.img
+                                    alt='Фото автора отзыва'
+                                    width=item.width
+                                    height=item.height
+                                )
+                            .reviews__box
+                                h3.reviews__name= item.name
+                                p.reviews__count= item.count
+                        p.reviews__review= item.review

@@ -1,3 +1,5 @@
+include footer-data
+
 footer.footer
         .container
             .footer__wrapper
@@ -69,46 +71,20 @@ footer.footer
                                     </svg>
                 nav.footer__nav
                     ul.footer__nav-list.footer-nav
-                        li.footer-nav__item
-                            h4.footer-nav__title Меню
-                            ul.footer-nav__sub-list
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='index.html') Главная
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='catalog.html') Каталог книг
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Оплата и доставка
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Контакты
-                        li.footer-nav__item
-                            h4.footer-nav__title Интересно
-                            ul.footer-nav__sub-list
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Новости
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Акции
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Блог
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Скидки
-                        li.footer-nav__item
-                            h4.footer-nav__title Важно
-                            ul.footer-nav__sub-list
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Возврат
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Сертификаты
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Предзаказы
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='#') Конкурсы
-                        li.footer-nav__item
-                            h4.footer-nav__title.footer-nav__title--more Адрес
-                            ul.footer-nav__sub-item
-                                li.footer-nav__sub-item
-                                    p.footer-nav__text 
-                                        | г. Санкт-Петербург, #[br]
-                                        | наб. Реки Карповки, 5 корпус П
-                                li.footer-nav__sub-item
-                                    a.footer-nav__link(href='tel:+78005558628') +7 800 555 86 28
+                        each block in footerNavList
+                            //- Проверяем, нужен ли дополнительный класс для заголовка "Адрес"
+                            - var titleClass = block.isMore ? 'footer-nav__title footer-nav__title--more' : 'footer-nav__title'  
+                                li.footer-nav__item
+                                    h4(class=titleClass)= block.title
+            
+                                    if block.list
+                                        ul.footer-nav__sub-list
+                                            each item in block.list
+                                                li.footer-nav__sub-item
+                                                    if item.type === 'text'
+                                                        //- Свойство style='white-space: pre-line' автоматически превратит \n из объекта в перенос строки <br>
+                                                        p.footer-nav__text(style='white-space: pre-line')= item.name
+                                                    else
+                                                        //- Если type не text (или по умолчанию), выводим ссылку
+                                                        a.footer-nav__link(href=item.link)= item.name
         p.footer__copyright ООО "Интерактивны обучающие технологии", 2013-2021
